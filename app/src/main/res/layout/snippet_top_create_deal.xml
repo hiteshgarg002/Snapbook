@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="50dp"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/ic_action_back_white"
+                    android:tint="@color/white"
+                    android:id="@+id/createDealBack"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_toEndOf="@+id/createDealBack"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:text="Create Deal"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/createDealNext"
+                    android:layout_centerVertical="true"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:tint="@color/white"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_action_forward"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+</merge>

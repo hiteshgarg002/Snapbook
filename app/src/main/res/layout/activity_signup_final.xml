@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/relFinalSignup"
+    tools:context="com.hrrock.snapbook.activities.signup.SignupFinalActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/relDpSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/link_blue">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/dpSignup"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/no_dp_big" />
+
+                <TextView
+                    android:id="@+id/editPhotoSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/dpSignup"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
+                    android:text="Edit Photo"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relDpSignup"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tagUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Username"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/unameSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tagUsername"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="casual"
+                    android:textColor="@color/link_blue"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/relNameGenderSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relUsername"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <com.libizo.CustomEditText
+                    android:id="@+id/nameSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="35dp"
+                    android:hint="Name"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor"
+                    app:libIZO_clearIconTint="@color/red"
+                    app:libIZO_setBorderColor="@color/link_blue"
+                    app:libIZO_setBorderView="true"
+                    app:libIZO_setClearIconVisible="true"
+                    app:libIZO_setCornerRadius="4dp"
+                    app:libIZO_setStrokeWidth="1dp" />
+
+                <com.libizo.CustomEditText
+                    android:id="@+id/mobilenoSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Mobile number"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor"
+                    app:libIZO_clearIconTint="@color/red"
+                    app:libIZO_setBorderColor="@color/link_blue"
+                    app:libIZO_setBorderView="true"
+                    app:libIZO_setClearIconVisible="true"
+                    app:libIZO_setCornerRadius="4dp"
+                    app:libIZO_setStrokeWidth="1dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <lib.kingja.switchbutton.SwitchMultiButton
+                        android:id="@+id/radioGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:padding="8dp"
+                        app:selectedColor="@color/link_blue"
+                        app:selectedTab="0"
+                        app:strokeRadius="5dp"
+                        app:strokeWidth="1dp"
+                        app:switchTabs="@array/gender"
+                        app:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/link_blue" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relNameGenderSignup"
+                android:layout_marginTop="17dp">
+
+                <com.dx.dxloadingbutton.lib.LoadingButton
+                    android:id="@+id/signupButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="32dp"
+                    app:lb_btnColor="@color/link_blue"
+                    app:lb_btnText="Signup"
+                    app:lb_resetAfterFailed="true" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

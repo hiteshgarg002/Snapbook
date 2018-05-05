@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_delete_post_photo"
+        app:showAsAction="never"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_action_delete"
+        android:title="Delete" />
+</menu>

@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootProfileView"
+    android:animateLayoutChanges="true"
+    android:background="@color/appBarColor">
+
+    <RelativeLayout
+        android:id="@+id/profileProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_no_network"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/snap_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/snapbook_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/snap_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Network Error!"
+            android:textColor="@color/hintColor" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/profileContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:visibility="gone">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/colorGray"
+                app:contentScrim="@color/colorGray"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:titleEnabled="false">
+
+                <RelativeLayout
+                    android:id="@+id/contentRelProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/my_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            tools:layout_editor_absoluteX="8dp"
+                            tools:layout_editor_absoluteY="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="15dp"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <android.support.design.widget.CoordinatorLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:animateLayoutChanges="true">
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/dpOnProfile"
+                                            android:layout_width="90dp"
+                                            android:visibility="gone"
+                                            android:layout_height="90dp"
+                                            android:layout_centerInParent="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_gravity="center_horizontal"
+                                            android:src="@drawable/no_dp_big" />
+
+                                        <com.wang.avi.AVLoadingIndicatorView
+                                            android:id="@+id/dpUpdateProgressProfile"
+                                            android:layout_width="90dp"
+                                            android:layout_height="90dp"
+                                            android:layout_centerInParent="true"
+                                            android:layout_centerVertical="true"
+                                            android:layout_gravity="center_horizontal"
+                                            android:visibility="visible"
+                                            app:indicatorColor="@color/link_blue"
+                                            app:indicatorName="BallScaleMultipleIndicator" />
+
+                                        <android.support.design.widget.FloatingActionButton
+                                            android:id="@+id/fab_editDPOnProfile"
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:visibility="gone"
+                                            android:layout_gravity="center_horizontal"
+                                            android:layout_marginStart="55dp"
+                                            android:layout_marginTop="68dp"
+                                            android:background="@color/link_blue"
+                                            android:backgroundTint="@color/link_blue"
+                                            android:src="@drawable/edit_white"
+                                            app:fabSize="mini" />
+
+                                    </android.support.design.widget.CoordinatorLayout>
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/nameOnProfile"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="7dp"
+                                    android:fontFamily="casual"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:visibility="gone"
+                                    android:id="@+id/aboutOnProfile"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:fontFamily="casual"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/link_blue"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/linearFollowersOnProfile"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="40dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/followersOnProfile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#FFFFFF"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/followerText"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="followers"
+                                        android:textAlignment="center"
+                                        android:textColor="#FFFFFF" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/postsOnProfile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#FFFFFF"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="posts"
+                                        android:textAlignment="center"
+                                        android:textColor="#FFFFFF" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/linearFollowingOnProfile"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="40dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/followingOnProfile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="15dp"
+                                        android:textAlignment="center"
+                                        android:textColor="#FFFFFF"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/followingText"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="following"
+                                        android:textAlignment="center"
+                                        android:textColor="#FFFFFF" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:gravity="center"
+                    app:layout_collapseMode="pin">
+
+                    <TextView
+                        android:id="@+id/profile_toolbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Hitesh Garg"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="45dp"
+            android:background="@color/appBarColor"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingTop="35dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/rel_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top">
+
+                    <com.gigamole.navigationtabstrip.NavigationTabStrip
+                        android:id="@+id/profileTabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rel_tabs">
+
+                    <com.hrrock.snapbook.utils.ScrollableViewPager
+                        android:id="@+id/profileViewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <iammert.com.view.scalinglib.ScalingLayout
+            android:id="@+id/scalingLayoutProfile"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:animateLayoutChanges="true"
+            app:layout_behavior="iammert.com.view.scalinglib.ScalingLayoutBehavior"
+            app:radiusFactor="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/link_blue"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingEnd="26dp"
+                android:paddingStart="26dp">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:animateLayoutChanges="true">
+
+                    <TextView
+                        android:id="@+id/user_profile_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Snaps"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/options"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:padding="0dp"
+                        android:src="@drawable/ic_action_drop_down_white"
+                        android:tint="@color/white" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </iammert.com.view.scalinglib.ScalingLayout>
+
+        <LinearLayout
+            android:id="@+id/bnvProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:animateLayoutChanges="true">
+
+                <com.joaquimley.faboptions.FabOptions
+                    android:id="@+id/profile_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:visibility="invisible"
+                    app:background_color="@color/link_blue"
+                    app:button_menu="@menu/profile_fab_items"
+                    app:fab_color="@color/link_blue" />
+
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/bottom"
+                layout="@layout/snippet_bottom_navigation_view_ex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</android.support.design.widget.CoordinatorLayout>

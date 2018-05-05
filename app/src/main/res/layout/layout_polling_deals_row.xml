@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+   android:layout_margin="7dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    android:background="@drawable/rounded_light_gray_bg"
+    android:backgroundTint="@color/colorGray"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:elevation="2dp"
+            android:padding="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Posted on "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_green"
+                android:textStyle="bold"
+                android:id="@+id/dateOnPD"
+                android:text="10-04-2018"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.florent37.expansionpanel.ExpansionHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/expansionPanelOnViewProduct"
+                android:padding="0dp"
+                app:expansion_headerIndicator="@id/headerIndicator"
+                app:expansion_layout="@id/expansionLayout"
+                app:expansion_toggleOnClick="true">
+
+                <!-- HEADER -->
+                <TextView
+                    android:id="@+id/dealNameOnPD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+
+                <!-- HEADER INDICATOR -->
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/headerIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
+
+
+            </com.github.florent37.expansionpanel.ExpansionHeader>
+
+            <com.github.florent37.expansionpanel.ExpansionLayout
+                android:id="@+id/expansionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginTop="3dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:padding="7dp"
+                        android:elevation="5dp"
+                        android:id="@+id/viewProductOnPD"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/rounded_light_gray_bg_blue_corner"
+                        android:backgroundTint="@color/yellow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="View Product"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"/>
+
+                    <RelativeLayout
+                        android:padding="7dp"
+                        android:elevation="5dp"
+                        android:id="@+id/viewProductStatusOnPD"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:background="@drawable/rounded_light_gray_bg_blue_corner"
+                        android:backgroundTint="@color/yellow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="View Status"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </com.github.florent37.expansionpanel.ExpansionLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

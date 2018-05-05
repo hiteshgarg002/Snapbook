@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:animateLayoutChanges="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/appBarColor"
+    android:layout_height="match_parent"
+    tools:context=".activities.PollingDealsActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/snippet_top_polling_deals"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_pollingDeals_progress"
+        android:visibility="visible"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rel_top"
+        android:layout_height="match_parent">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            app:indicatorColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_pollingDeals"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rel_top"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/polling_dealsRecyclerView"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

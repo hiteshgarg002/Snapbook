@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rootLayoutScaling">
+
+        <iammert.com.view.scalinglib.ScalingLayout
+            android:id="@+id/scalingLayout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="16dp"
+            android:elevation="6dp"
+            android:stateListAnimator="@animator/sl_state_animator"
+            app:radiusFactor="1">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/link_blue">
+
+                <ImageView
+                    android:id="@+id/fabIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_action_cart_icon"
+                    android:tint="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/filterLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:visibility="invisible">
+
+                    <RelativeLayout
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/rel_call"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imageCall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_action_call" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/imageCall"
+                            android:maxLines="2"
+                            android:minLines="1"
+                            android:singleLine="true"
+                            android:text="Call"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/rel_polling"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imagePolling"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_action_polling" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/imagePolling"
+                            android:maxLines="2"
+                            android:minLines="1"
+                            android:singleLine="true"
+                            android:text="Start Polling"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </iammert.com.view.scalinglib.ScalingLayout>
+
+    </RelativeLayout>
+
+</merge>

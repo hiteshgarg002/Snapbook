@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Snapbook</string>
+    <string name="bottom_nav_item_news_feed">News Feed</string>
+    <string name="bottom_nav_item_search">Search</string>
+    <string name="bottom_nav_item_moment">Moment</string>
+    <string name="bottom_nav_item_notification">Notification</string>
+    <string name="bottom_nav_item_profile">Profile</string>
+    <string name="bottom_nav_item_home">Home</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="ip">hoggish-divider.000webhostapp.com</string>192.168.43.222
+    <string name="BASE_URL_PHOTOS_NEWS_FEED">http://hoggish-divider.000webhostapp.com/Snapbook/images/post/</string>
+    <string name="BASE_URL_PROFILE_PIC">http://hoggish-divider.000webhostapp.com/Snapbook/images/profile/</string>
+    <string name="BASE_URL_PHOTOS_PROFILE">http://hoggish-divider.000webhostapp.com/Snapbook/images/post/</string>
+    <string name="BASE_URL_PHOTOS_PRODUCT">http://hoggish-divider.000webhostapp.com/Snapbook/images/product/</string>
+    <item name="key_position" type="id" />
+    rupee sign ->
+    <string name="Rs">\u20B9</string>
+    <string name="text_discount">10% off</string>
+    <string name="network_error">Network Error!</string>
+    <string name="vote_up">Up</string>
+    <string name="vote_down">Down</string>
+    <string name="post_a_comment">Post a comment</string>
+</resources>

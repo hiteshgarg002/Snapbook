@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@color/light_gray"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <RelativeLayout
+                android:id="@+id/contentRelProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/create_deal_new" />
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/createDealBack"
+                        android:layout_width="26dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_action_back_white"
+                        android:tint="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@+id/createDealBack"
+                        android:text="Create Deal"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/createDealNext"
+                        android:layout_width="26dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="5dp"
+                        android:src="@drawable/ic_action_forward"
+                        android:tint="@color/black" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingTop="5dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="P"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="roduct Name"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <com.libizo.CustomEditText
+                    android:id="@+id/productNameOnCreateDeal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@null"
+                    android:hint="Product Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor"
+                    app:libIZO_clearIconTint="@color/red"
+                    app:libIZO_setBorderColor="@color/light_gray"
+                    app:libIZO_setBorderView="true"
+                    app:libIZO_setClearIconVisible="true"
+                    app:libIZO_setCornerRadius="4dp"
+                    app:libIZO_setStrokeWidth="1dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="C"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="ategory"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/categorySpinnerOnCreateDeal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    app:ms_arrow_tint="@color/black"
+                    app:ms_background_color="@color/light_gray"
+                    app:ms_text_color="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="D"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="casual"
+                        android:text="escription"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <com.libizo.CustomEditText
+                        android:id="@+id/descriptionOnCreateDeal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="Description..."
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:lines="5"
+                        android:gravity="top|start"
+                        android:maxLines="50"
+                        android:minLines="5"
+                        android:scrollbars="vertical"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hintColor"
+                        app:libIZO_clearIconTint="@color/red"
+                        app:libIZO_setBorderColor="@color/light_gray"
+                        app:libIZO_setBorderView="true"
+                        app:libIZO_setClearIconVisible="true"
+                        app:libIZO_setCornerRadius="4dp"
+                        app:libIZO_setStrokeWidth="1dp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <iammert.com.view.scalinglib.ScalingLayout
+        android:id="@+id/scalingLayoutProfile"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:animateLayoutChanges="true"
+        android:elevation="5dp"
+        app:layout_behavior="iammert.com.view.scalinglib.ScalingLayoutBehavior"
+        app:radiusFactor="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingEnd="26dp"
+            android:paddingStart="26dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:animateLayoutChanges="true"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/user_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Deal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </iammert.com.view.scalinglib.ScalingLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rel_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:elevation="5dp">
+
+        <include layout="@layout/snippet_top_comments" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rel_writeComment"
+        android:layout_below="@id/rel_top"
+        android:animateLayoutChanges="true"
+        android:visibility="invisible">
+
+        <ListView
+            android:id="@+id/commentsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/white"
+            android:dividerHeight="7dp"
+            android:stackFromBottom="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_no_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rel_writeComment"
+        android:layout_below="@id/rel_top"
+        android:animateLayoutChanges="true"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/snap_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/snapbook_icon" />
+
+        <TextView
+            android:id="@+id/commentTagLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/snap_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Post a comment"
+            android:textColor="@color/hintColor" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_comment_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rel_writeComment"
+        android:layout_below="@id/rel_top"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/link_blue" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_writeComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="0dp"
+        android:animateLayoutChanges="true"
+        android:gravity="center_vertical"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_alignParentTop="false"
+            android:layout_marginBottom="13dp"
+            android:background="@color/hintColor"
+            android:visibility="visible" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userDpOnComments"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/no_dp_big" />
+
+        <RelativeLayout
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@+id/userDpOnComments">
+
+            <TextView
+                android:id="@+id/postComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:paddingBottom="7dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:text="Post"
+                android:textColor="@color/sky_blue" />
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:layout_width="34dp"
+                android:id="@+id/commentsPostProgress"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                app:indicatorName="BallScaleMultipleIndicator"
+                app:indicatorColor="@color/link_blue"
+                android:visibility="invisible"
+                android:layout_height="34dp" />
+
+            <EditText
+                android:id="@+id/writeComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/postComment"
+                android:background="@null"
+                android:hint="Post a comment"
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                android:textCursorDrawable="@null"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

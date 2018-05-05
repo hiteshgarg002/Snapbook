@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4d94ff</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#4d94ff</color>
+    <color name="link_blue">#4d94ff</color>
+    <color name="sky_blue">#9fc5ff</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="hintColor">#808080</color>
+    <color name="appBarColor">#151515</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorGray">#212121</color>
+    <color name="colorLightGray">#2e2e2e</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="light_gray">#EEEEEE</color>
+    <color name="dark_gray">#dfdfdf</color>
+    <color name="green">#2fff00</color>
+    <color name="dark_green">#1ea400</color>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="yellow">#ffc400</color>
+    <color name="dark_yellow">#ff9d00</color>
+    <color name="holo_light">#2D383E</color>
+</resources>

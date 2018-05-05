@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="condition">
+        <item>New</item>
+        <item>Old</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>Available</item>
+        <item>Out of Stock</item>
+    </string-array>
+</resources>

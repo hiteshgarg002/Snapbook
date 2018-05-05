@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <iammert.com.view.scalinglib.ScalingLayout
+        android:id="@+id/scalingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:radiusFactor="0.2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGray">
+
+            <RelativeLayout
+                android:id="@+id/searchLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:visibility="invisible">
+
+                <ImageView
+                    android:id="@+id/arrowBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_action_back_white" />
+
+                <EditText
+                    android:inputType="textNoSuggestions"
+                    android:maxLines="1"
+                    android:layout_toStartOf="@+id/searchProgress"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch"
+                    android:id="@+id/searchText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/arrowBack"
+                    android:background="@null"
+                    android:textColor="#ffffff" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:id="@+id/searchProgress"
+                    app:indicatorColor="@color/link_blue"
+                    app:indicatorName="BallScaleMultipleIndicator"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textViewSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Search"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </iammert.com.view.scalinglib.ScalingLayout>
+
+</merge>

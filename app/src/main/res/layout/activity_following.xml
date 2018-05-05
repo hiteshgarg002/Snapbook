@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/colorGray"
+    tools:context=".activities.FollowingActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="7dp">
+
+        <include layout="@layout/snippet_top_following" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_top"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/searchFollowing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableStart="@drawable/ic_action_search"
+            android:drawableTint="@color/white"
+            android:hint="Search"
+            android:padding="2dp"
+            android:textColor="@color/white"
+            android:textCursorDrawable="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_below="@+id/searchFollowing"
+            android:background="@color/link_blue" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_progressFollowing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rel_searchview"
+        android:gravity="center">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_recycler_following"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rel_searchview"
+        android:visibility="gone">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/followingRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:padding="5dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_no_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_searchview"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="No result found"
+            android:textColor="@color/hintColor" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

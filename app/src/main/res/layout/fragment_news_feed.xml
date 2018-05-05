@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/appBarColor">
+
+    <RelativeLayout
+        android:id="@+id/relTopNewsFeed"
+        android:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/snippet_top_news_feed" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_newsFeed_progress"
+        android:gravity="center"
+        android:layout_above="@+id/bnvNewsFeed"
+        android:layout_below="@+id/relTopNewsFeed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <com.baoyz.widget.PullRefreshLayout
+        android:visibility="gone"
+        android:id="@+id/refreshNewsFeed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bnvNewsFeed"
+        android:layout_below="@+id/relTopNewsFeed"
+        app:refreshColor="@color/link_blue"
+        app:refreshType="smartisan">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/newsFeedPostsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/appBarColor"
+                android:dividerHeight="5dp" />
+
+    </com.baoyz.widget.PullRefreshLayout>
+
+    <RelativeLayout
+        android:layout_above="@+id/bnvNewsFeed"
+        android:layout_below="@+id/relTopNewsFeed"
+        android:id="@+id/rel_no_network"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/snap_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/snapbook_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/snap_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Network Error!"
+            android:textColor="@color/hintColor" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bnvNewsFeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/snippet_bottom_navigation_view_ex" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_marginTop="7dp"
+    android:animateLayoutChanges="true"
+    android:backgroundTint="@color/appBarColor"
+    android:background="@drawable/rounded_darkest_gray_bg_white_corner"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="41.5dp"
+            android:id="@+id/dpOnFollowing"
+            android:src="@drawable/no_dp_big"
+            android:visibility="gone"
+            android:layout_marginStart="5dp"
+            android:layout_height="41.5dp" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="41.5dp"
+            app:indicatorColor="@color/link_blue"
+            app:indicatorName="LineSpinFadeLoaderIndicator"
+            android:id="@+id/dpProgressOnFollowing"
+            android:src="@drawable/no_dp_big"
+            android:layout_marginStart="5dp"
+            android:layout_height="41.5dp" />
+
+        <LinearLayout
+            android:id="@+id/nameUsernameLinearOnFollowing"
+            android:animateLayoutChanges="true"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:id="@+id/usernameOnFollowing"
+                android:textStyle="bold"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/nameOnFollowing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/hintColor"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:animateLayoutChanges="true"
+            android:layout_marginEnd="5dp"
+            android:gravity="end|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:padding="3dp"
+                android:layout_marginEnd="7dp"
+                android:id="@+id/followStatusOnFollowing"
+                android:src="@drawable/following"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

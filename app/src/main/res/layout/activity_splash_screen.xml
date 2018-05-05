@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    android:background="@color/appBarColor"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/logo"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/snapbook_icon" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/splashScreenProgress"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_below="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/voteProgress_onViewPost"
+            app:indicatorColor="@color/link_blue"
+            app:indicatorName="BallScaleMultipleIndicator"
+            android:layout_alignParentStart="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

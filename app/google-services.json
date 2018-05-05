@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1074419399737",
+    "firebase_url": "https://snapbook-72707.firebaseio.com",
+    "project_id": "snapbook-72707",
+    "storage_bucket": "snapbook-72707.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074419399737:android:c3d0c63d727557b5",
+        "android_client_info": {
+          "package_name": "com.hrrock.snapbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074419399737-arefvg68msoq65ntphgrg2j4ie8d6o05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUNUVmJsyN6V2q8UxrlcSNeFlkmnJwqE0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

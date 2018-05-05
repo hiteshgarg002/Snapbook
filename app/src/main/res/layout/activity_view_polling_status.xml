@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/appBarColor"
+    tools:context=".activities.ViewPollingStatusActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <RelativeLayout
+            android:id="@+id/rel_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <include layout="@layout/snippet_top_view_polling_status" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_no_votes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rel_top"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/snap_icon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/snapbook_icon" />
+
+            <TextView
+                android:id="@+id/commentTagLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/snap_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="No Votes!"
+                android:textColor="@color/hintColor" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_votingOnPollingStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rel_top"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/productNameOnProductStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.razerdp.widget.animatedpieview.AnimatedPieView
+                android:id="@+id/animatedPieView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/green" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Positive Vote" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/red" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Negative Vote" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="5dp"
+                    android:paddingTop="10dp"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_light_gray_bg"
+                        android:backgroundTint="@color/yellow"
+                        android:elevation="5dp"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="View Comments"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rel_top"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:indicatorColor="@color/white" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.qhutch.bottomsheetlayout.BottomSheetLayout
+        android:id="@+id/bottom_sheet_layout_product_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorGray"
+        android:visibility="visible"
+        app:collapsedHeight="45dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rel_viewComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/rounded_light_gray_bg"
+                android:backgroundTint="@color/yellow"
+                android:elevation="5dp"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/tag_viewComment_onProductStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="View Comments"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/commentsListOnProductStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rel_viewComments"
+                android:layout_marginTop="10dp"
+                android:divider="@color/colorGray"
+                android:dividerHeight="4dp"
+                android:padding="7dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_progress_commentsOnProductStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rel_viewComments"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:indicatorColor="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_no_commentsOnProductStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rel_viewComments"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/snap_icon_PS"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/snapbook_icon" />
+
+                <TextView
+                    android:id="@+id/commentTagLinePS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/snap_icon_PS"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="No Votes!"
+                    android:textColor="@color/hintColor" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_network_errorOnPS"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rel_viewComments"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/snap_icon__PS"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/snapbook_icon" />
+
+                <TextView
+                    android:id="@+id/commentTagLine_PS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/snap_icon__PS"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="No Votes!"
+                    android:textColor="@color/hintColor" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.qhutch.bottomsheetlayout.BottomSheetLayout>
+
+</FrameLayout>

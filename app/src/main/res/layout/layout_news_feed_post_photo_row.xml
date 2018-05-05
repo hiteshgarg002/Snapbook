@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:animateLayoutChanges="true"
+                android:id="@+id/relTopPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/appBarColor">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/newsFeedPostDP"
+                    android:layout_width="41.5dp"
+                    android:layout_height="41.5dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/no_dp_big" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/newsFeedPostDPProgress"
+                    android:layout_width="43dp"
+                    app:indicatorColor="@color/link_blue"
+                    app:indicatorName="LineSpinFadeLoaderIndicator"
+                    android:layout_height="43dp"
+                    android:layout_margin="10dp" />
+
+                <TextView
+                    android:id="@+id/newsFeedPostUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/newsFeedPostDP"
+                    android:padding="7dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:id="@+id/newsFeedPostOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_action_option"
+                    android:tint="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_main_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relTopPost"
+                android:layout_marginTop="4dp"
+                android:animateLayoutChanges="true"
+                android:background="@color/appBarColor"
+                android:backgroundTint="@color/appBarColor">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.8dp"
+                    android:background="@color/appBarColor" />
+
+                <com.hrrock.snapbook.utils.SquareImageView
+                    android:id="@+id/newsFeedPost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:visibility="invisible" />
+
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/newsFeedPostProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:indicatorColor="@color/link_blue"
+                    app:indicatorName="BallScaleMultipleIndicator" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/appBarColor"
+                android:id="@+id/pollingRel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel_main_post"
+                android:layout_marginTop="0dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:tint="@color/yellow"
+                    android:src="@drawable/ic_action_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:id="@+id/savePostOnNewsFeed"
+                    android:layout_alignParentEnd="true"/>
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:id="@+id/pollingLinear"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/appBarColor"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/thumb_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="13dp"
+                        android:src="@drawable/ic_action_thumbs_up"
+                        android:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/thumb_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="13dp"
+                        android:src="@drawable/ic_action_thumbs_down"
+                        android:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/comments_OnNewsFeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_comment"
+                        android:tint="@color/white" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linearVotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pollingRel"
+                android:background="@color/appBarColor"
+                android:orientation="vertical"
+                android:paddingBottom="5dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="10dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Votes"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/upVotesOnNewsFeedPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/white" />
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/downVotesOnNewsFeedPost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearCaptionOnNewsFeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearVotes"
+                android:background="@color/appBarColor"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Caption"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/captionOnNewsFeedPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearCaptionOnNewsFeed"
+                android:background="@color/appBarColor"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingEnd="7dp"
+                android:paddingStart="10dp">
+
+                <TextView
+                    android:id="@+id/dateOnNewsFeedPost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/hintColor"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

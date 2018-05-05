@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorLightGray">
+
+    <RelativeLayout
+        android:animateLayoutChanges="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:visibility="invisible"
+            android:id="@+id/relProductImageOnDeals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/rounded_darkest_gray_bg_white_corner"
+            android:backgroundTint="@color/white"
+            android:padding="2dp">
+
+            <com.hrrock.snapbook.utils.SquareImageView
+                android:id="@+id/productImageOnDeals"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_action_no_image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relProductImageLoadingOnDeals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="2dp">
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:layout_width="90dp"
+                app:indicatorColor="@color/link_blue"
+                app:indicatorName="BallScaleMultipleIndicator"
+                android:layout_height="90dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/relProductImageOnDeals"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/linear_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/productConditionStarOnDeals"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_action_star" />
+
+                <TextView
+                    android:id="@+id/productConditionOnDeals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="OLD"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/productStatusOnDeals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:text="Available"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/productNameOnDeals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_condition"
+                android:layout_marginTop="5dp"
+                android:fontFamily="casual"
+                android:text="Redmi Note 4"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/linear_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productNameOnDeals"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs."
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productCostOnDeals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8000"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/productShareOnDeals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/productNameOnDeals"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:src="@drawable/ic_action_post_on_feed"
+                android:tint="@android:color/holo_green_light" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

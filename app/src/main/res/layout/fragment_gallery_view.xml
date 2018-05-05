@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBarColor">
+
+    <RelativeLayout
+        android:id="@+id/rel_topGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/snippet_top_gallery_view" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rel_topGallery">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="60">
+
+                <ImageView
+                    android:id="@+id/galleryImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+            </RelativeLayout>
+
+            <GridView
+                android:id="@+id/gridViewGallery"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="40"
+                android:gravity="center"
+                android:horizontalSpacing="1.5dp"
+                android:numColumns="4"
+                android:stretchMode="none"
+                android:verticalSpacing="1.5dp">
+
+            </GridView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

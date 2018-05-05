@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/photoView"
+    android:background="@color/appBarColor"
+    android:layout_height="wrap_content">
+
+    <com.hrrock.snapbook.utils.SquareImageView
+        android:id="@+id/nImageV"
+        android:layout_margin="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:scaleType="centerCrop" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/gridProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:indicatorColor="@color/link_blue"
+        app:indicatorName="BallScaleMultipleIndicator" />
+
+</RelativeLayout>

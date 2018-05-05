@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="50dp"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_action_moment"
+                    android:tint="@color/white"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="26dp"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/snapbook_icon"
+                    android:layout_centerInParent="true"/>
+
+                <ImageView
+                    android:id="@+id/dealMode"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="5dp"
+                    android:tint="@color/white"
+                    android:src="@drawable/ic_action_deals"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="26dp"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+</merge>

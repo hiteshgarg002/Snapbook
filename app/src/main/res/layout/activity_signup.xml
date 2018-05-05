@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainSignupRel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:animateLayoutChanges="true"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:id="@+id/relEmailPassSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.libizo.CustomEditText
+                    android:id="@+id/emailSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="35dp"
+                    android:background="@null"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor"
+                    app:libIZO_clearIconTint="@color/red"
+                    app:libIZO_setBorderColor="@color/link_blue"
+                    app:libIZO_setBorderView="true"
+                    app:libIZO_setClearIconVisible="true"
+                    app:libIZO_setCornerRadius="4dp"
+                    app:libIZO_setStrokeWidth="1dp" />
+
+                <com.libizo.CustomEditText
+                    android:id="@+id/passwordSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/emailSignup"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor"
+                    app:libIZO_hideShowPasswordIconTint="@color/black"
+                    app:libIZO_setBorderColor="@color/link_blue"
+                    app:libIZO_setBorderView="true"
+                    app:libIZO_setCornerRadius="4dp"
+                    app:libIZO_setStrokeWidth="1dp" />
+
+                <com.libizo.CustomEditText
+                    android:id="@+id/cPasswordSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/passwordSignup"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/hintColor"
+                    app:libIZO_hideShowPasswordIconTint="@color/black"
+                    app:libIZO_setBorderColor="@color/link_blue"
+                    app:libIZO_setBorderView="true"
+                    app:libIZO_setCornerRadius="4dp"
+                    app:libIZO_setStrokeWidth="1dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/cPasswordSignup"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/link_blue" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relNextBtnSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relEmailPassSignup"
+                android:layout_marginTop="17dp">
+
+                <Button
+                    android:id="@+id/nextSignupBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginStart="33dp"
+                    android:background="@color/link_blue"
+                    android:text="NEXT"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

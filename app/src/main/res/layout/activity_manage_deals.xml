@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/light_gray"
+    tools:context=".activities.ManageDealsActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="7dp">
+
+        <include layout="@layout/snippet_top_manage_deals" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rel_top"
+        android:animateLayoutChanges="true"
+        android:gravity="center">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/black" />
+
+    </RelativeLayout>
+
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/refreshMD"
+        android:visibility="gone"
+        android:layout_below="@+id/rel_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:refreshColor="@color/link_blue"
+        app:refreshType="smartisan">
+
+            <ListView
+                android:padding="10dp"
+                android:id="@+id/dealsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:animateLayoutChanges="true"
+                android:divider="@color/black"
+                android:dividerHeight="0.5dp"
+                android:elevation="10dp"
+                android:scrollbars="none" />
+
+    </com.baoyz.widget.PullRefreshLayout>
+
+</RelativeLayout>

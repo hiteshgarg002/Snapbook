@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray"
+    tools:context="com.hrrock.snapbook.activities.NotificationActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel_tabs"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content">
+
+        <com.gigamole.navigationtabstrip.NavigationTabStrip
+            android:id="@+id/notificationTabs"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_below="@+id/top" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rel_tabs"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/rel_bottom"
+        android:layout_height="match_parent">
+
+        <com.hrrock.snapbook.utils.ScrollableViewPager
+            android:layout_width="match_parent"
+            android:id="@+id/notificationVP"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/snippet_bottom_navigation_view_ex" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

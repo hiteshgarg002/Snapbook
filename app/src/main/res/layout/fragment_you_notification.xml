@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorGray"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:gravity="center"
+        android:id="@+id/relProgress_onYouNotification"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relNoNotificationOnYouNotification"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/snap_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/snapbook_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/snap_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="No Notification!"
+            android:textColor="@color/hintColor" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relNoNetworkOnYouNotification"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/snap_icon1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/snapbook_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/snap_icon1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="No Network!"
+            android:textColor="@color/hintColor" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/relNotificationsOnYouNotification"
+        android:paddingTop="13dp"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Activity"
+            android:id="@+id/tag_activity"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@+id/tag_activity"
+            android:layout_marginTop="12dp"
+            android:id="@+id/youNotificationList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

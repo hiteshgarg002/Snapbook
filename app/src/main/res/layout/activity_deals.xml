@@ -1,0 +1,165 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/appBarColor">
+
+    <com.github.ksoichiro.android.observablescrollview.ObservableListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="18dp"
+        android:divider="@color/black"
+        android:scrollbars="none"
+        android:dividerHeight="0.5dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:visibility="invisible" />
+
+    <io.supercharge.shimmerlayout.ShimmerLayout
+        android:id="@+id/shimmer_view_deals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:shimmer_animation_duration="1200">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+            <include layout="@layout/layout_deal_row_placeholder" />
+
+        </LinearLayout>
+
+    </io.supercharge.shimmerlayout.ShimmerLayout>
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appBarColor"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appBarColor"
+            app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="Snapbook"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:id="@+id/optionsOnDeals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_action_option_white" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/appBarColor" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appBarColor">
+
+            <EditText
+                android:id="@+id/search_deal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/rounded_white_bg"
+                android:backgroundTint="@color/white"
+                android:drawableStart="@drawable/ic_action_search"
+                android:hint="Search"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hintColor"
+                android:textCursorDrawable="@null" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <ListView
+            android:dividerHeight="0.3dp"
+            android:divider="@color/black"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:background="@drawable/rounded_white_bg"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="14dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchListOnDeals"/>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/create_deal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="15dp"
+        android:background="@color/link_blue"
+        android:backgroundTint="@color/link_blue"
+        android:elevation="5dp"
+        android:src="@drawable/ic_action_write"
+        android:tint="@color/white"
+        android:visibility="invisible"
+        app:elevation="5dp"
+        app:fabSize="mini"
+        app:rippleColor="@color/link_blue" />
+
+    <com.joaquimley.faboptions.FabOptions
+        android:id="@+id/deals_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:animateLayoutChanges="true"
+        android:elevation="5dp"
+        app:background_color="@color/link_blue"
+        app:button_menu="@menu/deals_fab_items"
+        app:fab_color="@color/link_blue" />
+
+</FrameLayout>
