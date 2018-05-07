@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.hrrock.snapbook.fragments.HomeCameraViewFragment;
-import com.hrrock.snapbook.fragments.MomentCameraViewFragment;
 import com.hrrock.snapbook.fragments.NewsFeedFragment;
 
 /**

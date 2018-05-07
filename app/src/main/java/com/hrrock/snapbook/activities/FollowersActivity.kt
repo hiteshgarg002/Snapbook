@@ -12,7 +12,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
 import android.widget.RelativeLayout
-import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
@@ -34,7 +33,7 @@ class FollowersActivity : AppCompatActivity() {
     private var stringRequest: StringRequest? = null
     private var preferences: SharedPreferences? = null
     private var relFollowers: RelativeLayout? = null
-    private var jsonArrayRequest: JsonArrayRequest?=null
+    private var jsonArrayRequest: JsonArrayRequest? = null
 
     private companion object {
         private const val USER_PREFERENCES = "userinfo"
@@ -99,7 +98,7 @@ class FollowersActivity : AppCompatActivity() {
                 }}"
 
         jsonArrayRequest = JsonArrayRequest(url, Response.Listener<JSONArray> { response ->
-            if (response.length()>0) {
+            if (response.length() > 0) {
                 (0 until response.length()).forEach { i ->
                     val jsonObject = response.optJSONObject(i)
                     val followModel = FollowModel(jsonObject.optString("following"),
@@ -153,8 +152,8 @@ class FollowersActivity : AppCompatActivity() {
                 }}"
 
         jsonArrayRequest = JsonArrayRequest(url, Response.Listener<JSONArray> { response ->
-         //   Toast.makeText(ctx,""+response,Toast.LENGTH_SHORT).show()
-            if (response.length()>0) {
+            //   Toast.makeText(ctx,""+response,Toast.LENGTH_SHORT).show()
+            if (response.length() > 0) {
                 (0 until response.length()).forEach { i ->
                     val jsonObject = response.optJSONObject(i)
                     val followModel = FollowModel(jsonObject.optString("following"),
@@ -163,14 +162,14 @@ class FollowersActivity : AppCompatActivity() {
                             jsonObject.optString("followingstatus"),
                             jsonObject.optString("followerphoto"))
 
-                   // Toast.makeText(ctx,""+jsonObject.optString("followername"),Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(ctx,""+jsonObject.optString("followername"),Toast.LENGTH_SHORT).show()
 
                     list!!.add(followModel)
                 }
                 adapter!!.notifyDataSetChanged()
                 rel_progressFollowers.visibility = View.INVISIBLE
                 relFollowers!!.visibility = View.VISIBLE
-            } else{
+            } else {
                 rel_progressFollowers.visibility = View.INVISIBLE
                 rel_no_result.visibility = View.VISIBLE
             }

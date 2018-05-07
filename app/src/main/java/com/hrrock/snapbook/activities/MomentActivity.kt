@@ -18,8 +18,8 @@ import android.view.View
 import android.view.WindowManager
 import com.gigamole.navigationtabstrip.NavigationTabStrip
 import com.hrrock.snapbook.R
-import com.hrrock.snapbook.fragments.MomentCameraViewFragment
 import com.hrrock.snapbook.fragments.GalleryViewFragment
+import com.hrrock.snapbook.fragments.MomentCameraViewFragment
 import com.hrrock.snapbook.utils.BottomNavigationViewHelper
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import spencerstudios.com.bungeelib.Bungee
@@ -35,7 +35,7 @@ class MomentActivity : AppCompatActivity() {
         private const val ACTIVITY_NUM = 2
         private var activity: Activity? = null
 
-        fun destroyActivity(){
+        fun destroyActivity() {
             activity!!.finish()
         }
     }
@@ -45,7 +45,7 @@ class MomentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_moment)
         ctx = this
         activity = this
-       // activityRef=this
+        // activityRef=this
 
         setUpTabs()
         setUpBottomNavigationView()

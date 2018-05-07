@@ -15,10 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
@@ -45,14 +42,14 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyHo
     private RequestQueue requestQueue;
     private StringRequest stringRequest;
     private SharedPreferences preferences;
-    private final String USER_PREFERENCES="userinfo";
+    private final String USER_PREFERENCES = "userinfo";
 
     public FollowersAdapter(Context context, List<FollowModel> list) {
         this.list = list;
         this.ctx = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.requestQueue = VolleyConnect.getInstance().getRequestQueue();
-        this.preferences=ctx.getSharedPreferences(USER_PREFERENCES,Context.MODE_PRIVATE);
+        this.preferences = ctx.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
@@ -69,8 +66,8 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyHo
             followStatus = itemView.findViewById(R.id.followStatusOnFollowers);
             userName = itemView.findViewById(R.id.usernameOnFollowers);
             name = itemView.findViewById(R.id.nameOnFollowers);
-            nameUserNameLinear=itemView.findViewById(R.id.nameUsernameLinearOnFollowers);
-            dpProgress=itemView.findViewById(R.id.dpProgressOnFollowers);
+            nameUserNameLinear = itemView.findViewById(R.id.nameUsernameLinearOnFollowers);
+            dpProgress = itemView.findViewById(R.id.dpProgressOnFollowers);
         }
     }
 
@@ -85,12 +82,12 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyHo
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         FollowModel followModel = list.get(position);
         if (followModel != null) {
-            if(!Objects.equals(followModel.getProfileHolderUserName(), preferences.getString("username", ""))){
+            if (!Objects.equals(followModel.getProfileHolderUserName(), preferences.getString("username", ""))) {
                 holder.followStatus.setVisibility(View.INVISIBLE);
                 holder.options.setVisibility(View.INVISIBLE);
             }
 
-            if(!Objects.equals(followModel.getPhoto(), "")) {
+            if (!Objects.equals(followModel.getPhoto(), "")) {
                 GlideApp.with(ctx.getApplicationContext())
                         .load(ctx.getResources().getString(R.string.BASE_URL_PROFILE_PIC) + followModel.getPhoto())
                         .skipMemoryCache(true)
@@ -113,7 +110,7 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyHo
                         })
                         .placeholder(R.drawable.no_dp_big)
                         .into(holder.dp);
-            }else {
+            } else {
                 holder.dp.setImageResource(R.drawable.no_dp_big);
                 holder.dpProgress.setVisibility(View.GONE);
                 holder.dp.setVisibility(View.VISIBLE);
@@ -130,38 +127,38 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyHo
             }
 
             holder.followStatus.setOnClickListener(view -> {
-                if(holder.followStatus.getTag()=="follow"){
-                    doFollow(followModel.getUserName(),holder.followStatus);
-                }else if(holder.followStatus.getTag()=="following"){
-                    doUnFollow(followModel.getUserName(),holder.followStatus);
+                if (holder.followStatus.getTag() == "follow") {
+                    doFollow(followModel.getUserName(), holder.followStatus);
+                } else if (holder.followStatus.getTag() == "following") {
+                    doUnFollow(followModel.getUserName(), holder.followStatus);
                 }
             });
 
             holder.nameUserNameLinear.setOnClickListener(view -> {
-                Intent intent=new Intent(ctx, UserProfileActivity.class);
-                intent.putExtra("username",followModel.getUserName());
+                Intent intent = new Intent(ctx, UserProfileActivity.class);
+                intent.putExtra("username", followModel.getUserName());
                 ctx.startActivity(intent);
                 Bungee.slideLeft(ctx);
             });
 
             holder.dp.setOnClickListener(view -> {
-                Intent intent=new Intent(ctx, UserProfileActivity.class);
-                intent.putExtra("username",followModel.getUserName());
+                Intent intent = new Intent(ctx, UserProfileActivity.class);
+                intent.putExtra("username", followModel.getUserName());
                 ctx.startActivity(intent);
                 Bungee.slideLeft(ctx);
             });
         }
     }
 
-    private void doFollow(String username,ImageView followStatus){
-        String url="http://"+ctx.getString(R.string.ip)+"/Snapbook/index.php/FollowController/doFollow?" +
-                "follower="+preferences.getString("username", "")+"&following="+username;
+    private void doFollow(String username, ImageView followStatus) {
+        String url = "http://" + ctx.getString(R.string.ip) + "/Snapbook/index.php/FollowController/doFollow?" +
+                "follower=" + preferences.getString("username", "") + "&following=" + username;
 
-        stringRequest=new StringRequest(url, response -> {
-            if(Objects.equals(response, "success")){
+        stringRequest = new StringRequest(url, response -> {
+            if (Objects.equals(response, "success")) {
                 followStatus.setImageResource(R.drawable.following);
                 followStatus.setTag("following");
-            }else{
+            } else {
                 followStatus.setImageResource(R.drawable.follow);
                 followStatus.setTag("follow");
             }
@@ -173,15 +170,15 @@ public class FollowersAdapter extends RecyclerView.Adapter<FollowersAdapter.MyHo
         requestQueue.add(stringRequest);
     }
 
-    private void doUnFollow(String username,ImageView followStatus){
-        String url="http://"+ctx.getString(R.string.ip)+"/Snapbook/index.php/FollowController/doUnFollow?" +
-                "follower="+preferences.getString("username", "")+"&following="+username;
+    private void doUnFollow(String username, ImageView followStatus) {
+        String url = "http://" + ctx.getString(R.string.ip) + "/Snapbook/index.php/FollowController/doUnFollow?" +
+                "follower=" + preferences.getString("username", "") + "&following=" + username;
 
-        stringRequest=new StringRequest(url, response -> {
-            if(Objects.equals(response, "success")){
+        stringRequest = new StringRequest(url, response -> {
+            if (Objects.equals(response, "success")) {
                 followStatus.setImageResource(R.drawable.follow);
                 followStatus.setTag("follow");
-            }else{
+            } else {
                 followStatus.setImageResource(R.drawable.following);
                 followStatus.setTag("following");
             }

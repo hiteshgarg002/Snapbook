@@ -91,13 +91,13 @@ public class ProfileListViewAdapter extends RecyclerView.Adapter<ProfileListView
         ProfilePostsListViewModel listViewModel = list.get(position);
         if (listViewModel != null) {
             GlideApp.with(ctx.getApplicationContext())
-                    .load(ctx.getResources().getString(R.string.BASE_URL_PROFILE_PIC) + listViewModel.getUserName()+".jpg")
+                    .load(ctx.getResources().getString(R.string.BASE_URL_PROFILE_PIC) + listViewModel.getUserName() + ".jpg")
                     .skipMemoryCache(true)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(holder.dp);
 
             Glide.with(ctx.getApplicationContext()).load(ctx.getString(R.string.BASE_URL_PHOTOS_PROFILE)
-                    +listViewModel.getPhoto()).into(holder.photo);
+                    + listViewModel.getPhoto()).into(holder.photo);
             holder.username.setText(listViewModel.getUserName());
 
             holder.date.setText(listViewModel.getDate());
@@ -176,16 +176,16 @@ public class ProfileListViewAdapter extends RecyclerView.Adapter<ProfileListView
                 poll.setImageTintList(ColorStateList.valueOf(ctx.getResources().getColor(R.color.link_blue, null)));
                 otherPoll.setImageTintList(ColorStateList.valueOf(ctx.getResources().getColor(R.color.white, null)));
 
-                if(!Objects.equals(listViewModel.getUserName(), preferences.getString("username", ""))) {
+                if (!Objects.equals(listViewModel.getUserName(), preferences.getString("username", ""))) {
                     sendVoteNotification(listViewModel.getToken());
-                    makeNotification(listViewModel.getUserName(),listViewModel.getPostId());
+                    makeNotification(listViewModel.getUserName(), listViewModel.getPostId());
                 }
             } else {
                 poll.setImageTintList(ColorStateList.valueOf(ctx.getResources().getColor(R.color.white, null)));
                 otherPoll.setImageTintList(ColorStateList.valueOf(ctx.getResources().getColor(R.color.white, null)));
 
-                if(!Objects.equals(listViewModel.getUserName(), preferences.getString("username", ""))) {
-                    removeNotification(listViewModel.getUserName(),listViewModel.getPostId());
+                if (!Objects.equals(listViewModel.getUserName(), preferences.getString("username", ""))) {
+                    removeNotification(listViewModel.getUserName(), listViewModel.getPostId());
                 }
             }
         }, error -> poll.setImageTintList(ColorStateList.valueOf(ctx.getResources().getColor(R.color.white, null))));
@@ -219,19 +219,24 @@ public class ProfileListViewAdapter extends RecyclerView.Adapter<ProfileListView
 
         requestQueue.add(jsonArrayRequest);
     }
-    private void sendVoteNotification(String token){
-        final String url="http://"+ctx.getString(R.string.ip)+"/Firebase/notification.php?" +
-                "regId="+token+"&title=Snapbook&message="+preferences.getString("username","")+" voted on your post!&push_type=individual";
 
-        stringRequest=new StringRequest(url,response -> {},error -> {});
+    private void sendVoteNotification(String token) {
+        final String url = "http://" + ctx.getString(R.string.ip) + "/Firebase/notification.php?" +
+                "regId=" + token + "&title=Snapbook&message=" + preferences.getString("username", "") + " voted on your post!&push_type=individual";
+
+        stringRequest = new StringRequest(url, response -> {
+        }, error -> {
+        });
         requestQueue.add(stringRequest);
     }
 
-    private void makeNotification(String username,String postId){
-        final String url="http://"+ctx.getString(R.string.ip)+"/Snapbook/index.php/NotificationController/makeYouNotification?" +
-                "uname="+preferences.getString("username","")+"&username="+username+"&notification="+preferences.getString("username","")+" voted on your post!&postid="+postId+"&type=vote";
+    private void makeNotification(String username, String postId) {
+        final String url = "http://" + ctx.getString(R.string.ip) + "/Snapbook/index.php/NotificationController/makeYouNotification?" +
+                "uname=" + preferences.getString("username", "") + "&username=" + username + "&notification=" + preferences.getString("username", "") + " voted on your post!&postid=" + postId + "&type=vote";
 
-        stringRequest=new StringRequest(url,response -> {},error -> {});
+        stringRequest = new StringRequest(url, response -> {
+        }, error -> {
+        });
         requestQueue.add(stringRequest);
     }
 

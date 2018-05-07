@@ -11,7 +11,6 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
-import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -27,13 +26,13 @@ class HomeActivity : AppCompatActivity() {
     private var activity: Activity? = null
     private var viewPager: ViewPager? = null
     private var manager: FragmentManager? = null
-    private var preferences:SharedPreferences?=null
-    private var requestQueue:RequestQueue?=null
-    private var stringRequest:StringRequest?=null
+    private var preferences: SharedPreferences? = null
+    private var requestQueue: RequestQueue? = null
+    private var stringRequest: StringRequest? = null
 
     private companion object {
         private const val POSITION_NEWS_FEED = 1
-        private const val USER_PREFERENCES="userinfo"
+        private const val USER_PREFERENCES = "userinfo"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,28 +41,28 @@ class HomeActivity : AppCompatActivity() {
         ctx = this
         activity = this
 
-        requestQueue=VolleyConnect.getInstance().requestQueue
+        requestQueue = VolleyConnect.getInstance().requestQueue
 
         setUpViewPager()
         createApplicationFolder()
         setNavigationStatusBarColor()
         checkMomentUploadStatus()
 
-        preferences=ctx!!.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)
-      //  Toast.makeText(ctx,preferences!!.getString("firebaseToken","")+"", Toast.LENGTH_SHORT).show()
-       // Toast.makeText(ctx,preferences!!.getString("firebaseID","")+"", Toast.LENGTH_LONG).show()
+        preferences = ctx!!.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)
+        //  Toast.makeText(ctx,preferences!!.getString("firebaseToken","")+"", Toast.LENGTH_SHORT).show()
+        // Toast.makeText(ctx,preferences!!.getString("firebaseID","")+"", Toast.LENGTH_LONG).show()
         FirebaseMessaging.getInstance().subscribeToTopic("global")
 
         storeFirebaseToken()
     }
 
-    private fun storeFirebaseToken(){
-        val url="http://${ctx!!.getString(R.string.ip)}/Snapbook/index.php/CredentialController/storeFirebaseToken?" +
-                "token=${preferences!!.getString("firebaseToken","")}&email=${preferences!!.getString("email","")}"
+    private fun storeFirebaseToken() {
+        val url = "http://${ctx!!.getString(R.string.ip)}/Snapbook/index.php/CredentialController/storeFirebaseToken?" +
+                "token=${preferences!!.getString("firebaseToken", "")}&email=${preferences!!.getString("email", "")}"
 
-        stringRequest= StringRequest(url, Response.Listener<String> { response ->
+        stringRequest = StringRequest(url, Response.Listener<String> { response ->
 
-        }, Response.ErrorListener { error ->  })
+        }, Response.ErrorListener { error -> })
 
         requestQueue!!.add(stringRequest)
     }
@@ -95,7 +94,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun checkMomentUploadStatus() {
-        if(intent.flags== Intent.FLAG_ACTIVITY_NEW_TASK) {
+        if (intent.flags == Intent.FLAG_ACTIVITY_NEW_TASK) {
             val status = intent.getBooleanExtra("status", false)
             if (status) {
                 successSnack()

@@ -117,8 +117,8 @@ class ViewProductActivity : AppCompatActivity() {
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        relProductPhotoProgressOnViewProduct.visibility=View.INVISIBLE
-                        relProductPhotoOnViewProduct.visibility=View.VISIBLE
+                        relProductPhotoProgressOnViewProduct.visibility = View.INVISIBLE
+                        relProductPhotoOnViewProduct.visibility = View.VISIBLE
                         return false
                     }
                 })

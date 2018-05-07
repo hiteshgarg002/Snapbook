@@ -1,14 +1,12 @@
-package com.hrrock.snapbook.activities.dialogs
+package com.hrrock.snapbook.dialogs
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -22,7 +20,7 @@ import kotlinx.android.synthetic.main.dialog_fragment_change_password.*
 class ChangePasswordDialogFragment : DialogFragment() {
     private var ctx: Context? = null
     private var preferences: SharedPreferences? = null
-    private var editor:SharedPreferences.Editor?=null
+    private var editor: SharedPreferences.Editor? = null
     private var requestQueue: RequestQueue? = null
     private var stringRequest: StringRequest? = null
     private var update: TextView? = null
@@ -37,7 +35,7 @@ class ChangePasswordDialogFragment : DialogFragment() {
         ctx = activity
 
         preferences = ctx!!.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE)
-        editor=preferences!!.edit()
+        editor = preferences!!.edit()
         requestQueue = VolleyConnect.getInstance().requestQueue
 
         update = v.findViewById(R.id.updatePwd)
@@ -68,7 +66,7 @@ class ChangePasswordDialogFragment : DialogFragment() {
                 stringRequest = StringRequest(url, Response.Listener<String> { response ->
                     when (response) {
                         "success" -> {
-                            editor!!.putString("password",newPassword.text.toString())
+                            editor!!.putString("password", newPassword.text.toString())
                             editor!!.apply()
                             editor!!.commit()
 

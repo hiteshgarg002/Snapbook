@@ -5,4 +5,4 @@ package com.hrrock.snapbook.models
  */
 data class ProfilePostsListViewModel(var postId: String, var userName: String, var caption: String, var timeStamp: String
                                      , var photo: String, var type: String, var date: String, var pollStatus: String
-                                     , var voteUp: String, var voteDown: String,var token:String)
+                                     , var voteUp: String, var voteDown: String, var token: String)

@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
@@ -56,7 +55,7 @@ public class CommentsAdapter extends ArrayAdapter<CommentsModel> {
             holder.dp = convertView.findViewById(R.id.dpOnComments);
             holder.username = convertView.findViewById(R.id.usernameOnComments);
             holder.comment = convertView.findViewById(R.id.commentOnComments);
-            holder.dpProgress=convertView.findViewById(R.id.dpProgressOnComments);
+            holder.dpProgress = convertView.findViewById(R.id.dpProgressOnComments);
 
             convertView.setTag(holder);
         } else {
@@ -81,10 +80,10 @@ public class CommentsAdapter extends ArrayAdapter<CommentsModel> {
 
                             @Override
                             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                                if(holder.dpProgress!=null) {
+                                if (holder.dpProgress != null) {
                                     holder.dpProgress.setVisibility(View.GONE);
                                 }
-                                if(holder.dp!=null) {
+                                if (holder.dp != null) {
                                     holder.dp.setVisibility(View.VISIBLE);
                                 }
                                 return false;

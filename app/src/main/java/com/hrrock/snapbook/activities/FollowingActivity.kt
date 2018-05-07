@@ -12,13 +12,11 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
 import android.widget.RelativeLayout
-import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.hrrock.snapbook.R
-import com.hrrock.snapbook.adapters.FollowersAdapter
 import com.hrrock.snapbook.adapters.FollowingAdapter
 import com.hrrock.snapbook.models.FollowModel
 import com.hrrock.snapbook.networks.VolleyConnect
@@ -33,7 +31,7 @@ class FollowingActivity : AppCompatActivity() {
     private var list: MutableList<FollowModel>? = null
     private var requestQueue: RequestQueue? = null
     private var stringRequest: StringRequest? = null
-    private var jsonArrayRequest:JsonArrayRequest?=null
+    private var jsonArrayRequest: JsonArrayRequest? = null
     private var preferences: SharedPreferences? = null
     private var relFollowing: RelativeLayout? = null
 
@@ -74,6 +72,7 @@ class FollowingActivity : AppCompatActivity() {
 
         window.navigationBarColor = resources.getColor(R.color.colorGray, null)
     }
+
     private fun setUpFollowersRecyclerView() {
         list = ArrayList()
 
@@ -92,14 +91,14 @@ class FollowingActivity : AppCompatActivity() {
         adapter!!.notifyDataSetChanged()
 
         val url = "http://${getString(R.string.ip)}/Snapbook/index.php/FollowController/getFollowing?" +
-                "username=${if(getUsernameIntent()!=""){
+                "username=${if (getUsernameIntent() != "") {
                     getUsernameIntent()
-                }else{
+                } else {
                     preferences!!.getString("username", "")
                 }}"
 
         jsonArrayRequest = JsonArrayRequest(url, Response.Listener<JSONArray> { response ->
-            if (response.length()>0) {
+            if (response.length() > 0) {
                 (0 until response.length()).forEach { i ->
                     val jsonObject = response.optJSONObject(i)
                     val followModel = FollowModel(jsonObject.optString("follower"),
@@ -112,7 +111,7 @@ class FollowingActivity : AppCompatActivity() {
                 }
                 adapter!!.notifyDataSetChanged()
                 rel_progressFollowing.visibility = View.INVISIBLE
-                rel_no_result.visibility=View.INVISIBLE
+                rel_no_result.visibility = View.INVISIBLE
                 relFollowing!!.visibility = View.VISIBLE
             } else {
                 rel_progressFollowing.visibility = View.INVISIBLE
@@ -122,16 +121,16 @@ class FollowingActivity : AppCompatActivity() {
         requestQueue!!.add(jsonArrayRequest)
     }
 
-    private fun onSearchTextChange(){
-        searchFollowing.addTextChangedListener(object: TextWatcher {
+    private fun onSearchTextChange() {
+        searchFollowing.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(text: Editable?) {
-                if(!text!!.isEmpty()) {
+                if (!text!!.isEmpty()) {
                     relFollowing!!.visibility = View.GONE
-                    rel_no_result.visibility=View.INVISIBLE
+                    rel_no_result.visibility = View.INVISIBLE
                     rel_progressFollowing.visibility = View.VISIBLE
                     searchFollowing(text.toString())
-                }else{
-                    rel_no_result.visibility=View.INVISIBLE
+                } else {
+                    rel_no_result.visibility = View.INVISIBLE
                     getFollowing()
                     //setUpFollowersRecyclerView()
                 }
@@ -143,17 +142,17 @@ class FollowingActivity : AppCompatActivity() {
         })
     }
 
-    private fun searchFollowing(search:String){
+    private fun searchFollowing(search: String) {
         list!!.clear()
-        val url="http://${getString(R.string.ip)}/Snapbook/index.php/FollowController/getFollowingBySearch?" +
-                "following=$search&follower=${if(getUsernameIntent()!=""){
+        val url = "http://${getString(R.string.ip)}/Snapbook/index.php/FollowController/getFollowingBySearch?" +
+                "following=$search&follower=${if (getUsernameIntent() != "") {
                     getUsernameIntent()
-                }else{
+                } else {
                     preferences!!.getString("username", "")
                 }}"
 
-       jsonArrayRequest= JsonArrayRequest(url,Response.Listener<JSONArray> { response ->
-            if(response.length()>0){
+        jsonArrayRequest = JsonArrayRequest(url, Response.Listener<JSONArray> { response ->
+            if (response.length() > 0) {
                 (0 until response.length()).forEach { i ->
                     val jsonObject = response.optJSONObject(i)
                     val followModel = FollowModel(jsonObject.optString("follower"),
@@ -167,11 +166,11 @@ class FollowingActivity : AppCompatActivity() {
                 adapter!!.notifyDataSetChanged()
                 rel_progressFollowing.visibility = View.INVISIBLE
                 relFollowing!!.visibility = View.VISIBLE
-            }else{
+            } else {
                 rel_progressFollowing.visibility = View.INVISIBLE
-                rel_no_result.visibility=View.VISIBLE
+                rel_no_result.visibility = View.VISIBLE
             }
-        }, Response.ErrorListener { error ->  })
+        }, Response.ErrorListener { error -> })
 
         requestQueue!!.add(jsonArrayRequest)
     }

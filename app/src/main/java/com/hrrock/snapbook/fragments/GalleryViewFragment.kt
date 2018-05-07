@@ -16,8 +16,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.hrrock.snapbook.R
-import com.hrrock.snapbook.activities.PostUploadingActivity
 import com.hrrock.snapbook.activities.HomeActivity
+import com.hrrock.snapbook.activities.PostUploadingActivity
 import com.hrrock.snapbook.adapters.GridViewAdapter
 import com.hrrock.snapbook.utils.FilePaths
 import com.hrrock.snapbook.utils.FileSearch
@@ -45,7 +45,7 @@ class GalleryViewFragment : Fragment() {
 
     private companion object {
         private const val NUM_GRID_COL = 4
-        private const val TAG="GALLERY"
+        private const val TAG = "GALLERY"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -69,7 +69,7 @@ class GalleryViewFragment : Fragment() {
         next!!.setOnClickListener { view ->
             myIntent = Intent(ctx, PostUploadingActivity::class.java)
             myIntent!!.putExtra("imgURL", finalPicDestination + "")
-            myIntent!!.putExtra("from",TAG)
+            myIntent!!.putExtra("from", TAG)
             startActivity(myIntent)
 
             Bungee.slideLeft(ctx)

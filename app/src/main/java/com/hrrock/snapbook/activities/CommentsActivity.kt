@@ -9,7 +9,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
-import android.widget.*
+import android.widget.EditText
+import android.widget.ListView
+import android.widget.RelativeLayout
+import android.widget.TextView
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
@@ -42,7 +45,7 @@ class CommentsActivity : AppCompatActivity() {
     private var relNoComment: RelativeLayout? = null
     private var userToken: String? = null
     private var userName: String? = null
-    private var type:String?=null
+    private var type: String? = null
 
     private companion object {
         private const val USER_PREFERENCES = "userinfo"
@@ -98,9 +101,9 @@ class CommentsActivity : AppCompatActivity() {
                             jsonObject.optString("username"),
                             jsonObject.optString("comment"))
 
-                        userToken = jsonObject.optString("usertoken")
-                        userName = jsonObject.optString("owneruname")
-                    type= jsonObject.optString("posttype")
+                    userToken = jsonObject.optString("usertoken")
+                    userName = jsonObject.optString("owneruname")
+                    type = jsonObject.optString("posttype")
 
                     list!!.add(commentsModel)
                 }
@@ -143,7 +146,7 @@ class CommentsActivity : AppCompatActivity() {
                 if (preferences!!.getString("username", "") != userName) {
                     //Toast.makeText(ctx,userToken+" - "+writeComment!!.text,Toast.LENGTH_LONG).show()
                     sendCommentNotification(userToken!!, writeComment!!.text.toString())
-                    makeNotification(userName!!, getPostId()!!, writeComment!!.text.toString(),type!!)
+                    makeNotification(userName!!, getPostId()!!, writeComment!!.text.toString(), type!!)
                 }
                 getComments()
 
@@ -188,7 +191,7 @@ class CommentsActivity : AppCompatActivity() {
         requestQueue!!.add(stringRequest)
     }
 
-    private fun makeNotification(username: String, postId: String, comment: String,type:String) {
+    private fun makeNotification(username: String, postId: String, comment: String, type: String) {
         val url = "http://${ctx!!.getString(R.string.ip)}/Snapbook/index.php/NotificationController/makeYouNotification?uname=${preferences!!.getString("username", "")}&username=$username&notification=${preferences!!.getString("username", "")} commented on your post! : $comment&postid=$postId&type=$type"
 
         stringRequest = StringRequest(url, { response ->

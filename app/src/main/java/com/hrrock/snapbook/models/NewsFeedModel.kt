@@ -6,4 +6,4 @@ package com.hrrock.snapbook.models
 data class NewsFeedModel(var postId: String, var userName: String, var caption: String, var timeStamp: String
                          , var photo: String, var type: String, var dealId: String, var dName: String, var dCategory: String
                          , var dCondition: String, var dStatus: String, var dCost: String, var dDesc: String, var date: String
-                         , var pollStatus: String, var voteUp: String, var voteDown: String,var token:String)
+                         , var pollStatus: String, var voteUp: String, var voteDown: String, var token: String)

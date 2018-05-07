@@ -2,33 +2,22 @@ package com.hrrock.snapbook.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.bumptech.glide.Glide;
 import com.hrrock.snapbook.R;
-import com.hrrock.snapbook.activities.UserProfileActivity;
 import com.hrrock.snapbook.activities.ViewPollingStatusActivity;
 import com.hrrock.snapbook.activities.ViewProductActivity;
-import com.hrrock.snapbook.models.FollowModel;
 import com.hrrock.snapbook.models.PollingDealsModel;
-import com.hrrock.snapbook.networks.VolleyConnect;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import spencerstudios.com.bungeelib.Bungee;
 
 public class PollingDealsAdapter extends RecyclerView.Adapter<PollingDealsAdapter.MyHolder> {
@@ -44,14 +33,14 @@ public class PollingDealsAdapter extends RecyclerView.Adapter<PollingDealsAdapte
 
     class MyHolder extends RecyclerView.ViewHolder {
         TextView dealName, date;
-        RelativeLayout viewProduct,viewStatus;
+        RelativeLayout viewProduct, viewStatus;
 
         MyHolder(View itemView) {
             super(itemView);
             dealName = itemView.findViewById(R.id.dealNameOnPD);
             date = itemView.findViewById(R.id.dateOnPD);
-            viewProduct=itemView.findViewById(R.id.viewProductOnPD);
-            viewStatus=itemView.findViewById(R.id.viewProductStatusOnPD);
+            viewProduct = itemView.findViewById(R.id.viewProductOnPD);
+            viewStatus = itemView.findViewById(R.id.viewProductStatusOnPD);
         }
     }
 
@@ -70,15 +59,15 @@ public class PollingDealsAdapter extends RecyclerView.Adapter<PollingDealsAdapte
             holder.dealName.setText(dealsModel.getDealName());
 
             holder.viewProduct.setOnClickListener(view -> {
-                Intent intent=new Intent(ctx, ViewProductActivity.class);
-                intent.putExtra("dealid",dealsModel.getDealId());
+                Intent intent = new Intent(ctx, ViewProductActivity.class);
+                intent.putExtra("dealid", dealsModel.getDealId());
                 ctx.startActivity(intent);
                 Bungee.inAndOut(ctx);
             });
 
             holder.viewStatus.setOnClickListener(view -> {
-                Intent intent=new Intent(ctx, ViewPollingStatusActivity.class);
-                intent.putExtra("postid",dealsModel.getPostId());
+                Intent intent = new Intent(ctx, ViewPollingStatusActivity.class);
+                intent.putExtra("postid", dealsModel.getPostId());
                 ctx.startActivity(intent);
                 Bungee.inAndOut(ctx);
             });

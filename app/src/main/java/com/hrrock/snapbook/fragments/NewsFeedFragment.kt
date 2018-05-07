@@ -21,7 +21,6 @@ import com.hrrock.snapbook.R
 import com.hrrock.snapbook.activities.CommentsActivity
 import com.hrrock.snapbook.activities.DealsActivity
 import com.hrrock.snapbook.adapters.NewsFeedAdapter
-import com.hrrock.snapbook.adapters.NewsFeedAdapterOld
 import com.hrrock.snapbook.models.NewsFeedModel
 import com.hrrock.snapbook.networks.VolleyConnect
 import com.hrrock.snapbook.utils.BottomNavigationViewHelper
@@ -43,12 +42,12 @@ class NewsFeedFragment : Fragment(), View.OnClickListener {
     private var requestQueue: RequestQueue? = null
     private var jsonArrayRequest: JsonArrayRequest? = null
     private var list: MutableList<NewsFeedModel>? = null
-   // private var adapter: NewsFeedAdapterOld? = null
+    // private var adapter: NewsFeedAdapterOld? = null
     private var listView: ListView? = null
     private var refreshNewsFeed: PullRefreshLayout? = null
     private var dealMode: ImageView? = null
-    private var progressRel:RelativeLayout?=null
-    private var relNoNetwork:RelativeLayout?=null
+    private var progressRel: RelativeLayout? = null
+    private var relNoNetwork: RelativeLayout? = null
     private var adapter: NewsFeedAdapter? = null
     private var recyclerView: RecyclerView? = null
 
@@ -70,13 +69,13 @@ class NewsFeedFragment : Fragment(), View.OnClickListener {
         recyclerView = v.findViewById(R.id.newsFeedPostsList)
         refreshNewsFeed = v.findViewById(R.id.refreshNewsFeed)
         dealMode = v.findViewById(R.id.dealMode)
-        progressRel=v.findViewById(R.id.rel_newsFeed_progress)
-        relNoNetwork=v.findViewById(R.id.rel_no_network)
+        progressRel = v.findViewById(R.id.rel_newsFeed_progress)
+        relNoNetwork = v.findViewById(R.id.rel_no_network)
 
         setUpBottomNavigationView(v)
 
-       // adapter = NewsFeedAdapterOld(ctx!!, R.layout.layout_news_feed_post_photo_row, list!!, this)
-     //   listView!!.adapter = adapter
+        // adapter = NewsFeedAdapterOld(ctx!!, R.layout.layout_news_feed_post_photo_row, list!!, this)
+        //   listView!!.adapter = adapter
 
         recyclerView!!.layoutManager = LinearLayoutManager(ctx)
         adapter = NewsFeedAdapter(ctx!!, list!!, this)
@@ -146,7 +145,7 @@ class NewsFeedFragment : Fragment(), View.OnClickListener {
                             jsonObject.optString("votedown"),
                             jsonObject.optString("firebasetoken"))
 
-                  //  Toast.makeText(ctx,jsonObject.optString("firebasetoken")+"",Toast.LENGTH_SHORT).show()
+                    //  Toast.makeText(ctx,jsonObject.optString("firebasetoken")+"",Toast.LENGTH_SHORT).show()
 
                     list!!.add(newsFeedModel)
                 }
@@ -195,67 +194,67 @@ class NewsFeedFragment : Fragment(), View.OnClickListener {
                 adapter!!.notifyDataSetChanged()
 
                 progressRel!!.visibility = View.GONE
-                relNoNetwork!!.visibility=View.GONE
+                relNoNetwork!!.visibility = View.GONE
                 refreshNewsFeed!!.visibility = View.VISIBLE
-                recyclerView!!.visibility=View.VISIBLE
+                recyclerView!!.visibility = View.VISIBLE
 
             }, Response.ErrorListener { error ->
                 progressRel!!.visibility = View.GONE
-                recyclerView!!.visibility=View.INVISIBLE
+                recyclerView!!.visibility = View.INVISIBLE
                 refreshNewsFeed!!.visibility = View.VISIBLE
                 refreshNewsFeed!!.setRefreshing(false)
-                relNoNetwork!!.visibility=View.VISIBLE
+                relNoNetwork!!.visibility = View.VISIBLE
             })
 
             requestQueue!!.add(jsonArrayRequest)
         }
-      /*  jsonArrayRequest = JsonArrayRequest(postsURL, Response.Listener<JSONArray> { response ->
-            //   Toast.makeText(ctx, response.toString() + "", Toast.LENGTH_SHORT).show()
-            list!!.clear()
+        /*  jsonArrayRequest = JsonArrayRequest(postsURL, Response.Listener<JSONArray> { response ->
+              //   Toast.makeText(ctx, response.toString() + "", Toast.LENGTH_SHORT).show()
+              list!!.clear()
 
-            for (i in 0 until response.length()) {
-                // Toast.makeText(ctx, i.toString() + "", Toast.LENGTH_SHORT).show()
-                val jsonObject = response.optJSONObject(i)
-                val newsFeedModel = NewsFeedModel(jsonObject.optString("postid"),
-                        jsonObject.optString("username"),
-                        jsonObject.optString("caption"),
-                        jsonObject.optString("timestamp"),
-                        jsonObject.optString("photo"),
-                        jsonObject.optString("type"),
-                        jsonObject.optString("dealid"),
-                        jsonObject.optString("dealname"),
-                        jsonObject.optString("dealcategory"),
-                        jsonObject.optString("dealcondition"),
-                        jsonObject.optString("dealstatus"),
-                        jsonObject.optString("dealcost"),
-                        jsonObject.optString("dealdescription"),
-                        jsonObject.optString("date"),
-                        jsonObject.optString("pollstatus"),
-                        jsonObject.optString("voteup"),
-                        jsonObject.optString("votedown"),
-                        jsonObject.optString("firebasetoken"))
+              for (i in 0 until response.length()) {
+                  // Toast.makeText(ctx, i.toString() + "", Toast.LENGTH_SHORT).show()
+                  val jsonObject = response.optJSONObject(i)
+                  val newsFeedModel = NewsFeedModel(jsonObject.optString("postid"),
+                          jsonObject.optString("username"),
+                          jsonObject.optString("caption"),
+                          jsonObject.optString("timestamp"),
+                          jsonObject.optString("photo"),
+                          jsonObject.optString("type"),
+                          jsonObject.optString("dealid"),
+                          jsonObject.optString("dealname"),
+                          jsonObject.optString("dealcategory"),
+                          jsonObject.optString("dealcondition"),
+                          jsonObject.optString("dealstatus"),
+                          jsonObject.optString("dealcost"),
+                          jsonObject.optString("dealdescription"),
+                          jsonObject.optString("date"),
+                          jsonObject.optString("pollstatus"),
+                          jsonObject.optString("voteup"),
+                          jsonObject.optString("votedown"),
+                          jsonObject.optString("firebasetoken"))
 
-                // Toast.makeText(ctx,newsFeedModel.postId+"",Toast.LENGTH_SHORT).show()
+                  // Toast.makeText(ctx,newsFeedModel.postId+"",Toast.LENGTH_SHORT).show()
 
-                list!!.add(newsFeedModel)
-            }
-            refreshNewsFeed!!.setRefreshing(false)
-            adapter!!.notifyDataSetChanged()
+                  list!!.add(newsFeedModel)
+              }
+              refreshNewsFeed!!.setRefreshing(false)
+              adapter!!.notifyDataSetChanged()
 
-            progressRel!!.visibility = View.GONE
-            relNoNetwork!!.visibility=View.GONE
-            refreshNewsFeed!!.visibility = View.VISIBLE
-            listView!!.visibility=View.VISIBLE
+              progressRel!!.visibility = View.GONE
+              relNoNetwork!!.visibility=View.GONE
+              refreshNewsFeed!!.visibility = View.VISIBLE
+              listView!!.visibility=View.VISIBLE
 
-        }, Response.ErrorListener { error ->
-            progressRel!!.visibility = View.GONE
-            listView!!.visibility=View.INVISIBLE
-            refreshNewsFeed!!.visibility = View.VISIBLE
-            refreshNewsFeed!!.setRefreshing(false)
-            relNoNetwork!!.visibility=View.VISIBLE
-        })
+          }, Response.ErrorListener { error ->
+              progressRel!!.visibility = View.GONE
+              listView!!.visibility=View.INVISIBLE
+              refreshNewsFeed!!.visibility = View.VISIBLE
+              refreshNewsFeed!!.setRefreshing(false)
+              relNoNetwork!!.visibility=View.VISIBLE
+          })
 
-        requestQueue!!.add(jsonArrayRequest)*/
+          requestQueue!!.add(jsonArrayRequest)*/
     }
 
     override fun onClick(view: View?) {

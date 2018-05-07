@@ -1,7 +1,6 @@
 package com.hrrock.snapbook.interfaces;
 
 import com.hrrock.snapbook.models.UserDetailsModel;
-import com.hrrock.snapbook.models.YouNotificationModel;
 
 import java.util.List;
 

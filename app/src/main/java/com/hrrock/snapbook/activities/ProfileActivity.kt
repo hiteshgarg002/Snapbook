@@ -29,7 +29,6 @@ import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
@@ -50,8 +49,6 @@ import com.skydoves.powermenu.MenuAnimation
 import com.skydoves.powermenu.OnMenuItemClickListener
 import com.skydoves.powermenu.PowerMenu
 import com.skydoves.powermenu.PowerMenuItem
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.Picasso
 import com.wang.avi.AVLoadingIndicatorView
 import de.hdodenhof.circleimageview.CircleImageView
 import iammert.com.view.scalinglib.ScalingLayout
@@ -132,7 +129,7 @@ class ProfileActivity : AppCompatActivity(), OnMenuItemClickListener<PowerMenuIt
         onDpFabClick()
         onOptionsClick()
 
-        if (this.intent.getStringExtra("from")=="EditProfile") {
+        if (this.intent.getStringExtra("from") == "EditProfile") {
 
         }
     }
@@ -161,9 +158,9 @@ class ProfileActivity : AppCompatActivity(), OnMenuItemClickListener<PowerMenuIt
                     }
 
                     override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                        dpUpdateProgress!!.visibility=View.GONE
-                        dp!!.visibility=View.VISIBLE
-                        dpFab!!.visibility=View.VISIBLE
+                        dpUpdateProgress!!.visibility = View.GONE
+                        dp!!.visibility = View.VISIBLE
+                        dpFab!!.visibility = View.VISIBLE
                         return false
                     }
                 })
@@ -289,11 +286,11 @@ class ProfileActivity : AppCompatActivity(), OnMenuItemClickListener<PowerMenuIt
                 followingOnProfile.text = jsonObject.optString("followingcount")
                 postsOnProfile.text = jsonObject.optString("postscount")
 
-                if(!jsonObject.optString("about").isEmpty()) {
+                if (!jsonObject.optString("about").isEmpty()) {
                     aboutOnProfile.text = jsonObject.optString("about")
-                    aboutOnProfile.visibility=View.VISIBLE
-                }else{
-                    aboutOnProfile.visibility=View.GONE
+                    aboutOnProfile.visibility = View.VISIBLE
+                } else {
+                    aboutOnProfile.visibility = View.GONE
                 }
 
                 profileProgress.visibility = View.GONE

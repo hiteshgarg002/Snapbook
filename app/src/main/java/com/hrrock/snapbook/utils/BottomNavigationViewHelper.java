@@ -3,9 +3,6 @@ package com.hrrock.snapbook.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.view.MenuItem;
 
 import com.hrrock.snapbook.R;
 import com.hrrock.snapbook.activities.HomeActivity;
@@ -32,7 +29,7 @@ public class BottomNavigationViewHelper {
         bottomNavigationViewEx.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.item_home:
-                    if(!(activity instanceof HomeActivity)) {
+                    if (!(activity instanceof HomeActivity)) {
                         ctx.startActivity(new Intent(ctx, HomeActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         activity.overridePendingTransition(0, 0);
@@ -42,7 +39,7 @@ public class BottomNavigationViewHelper {
                     break;
 
                 case R.id.item_search:
-                    if(!(activity instanceof SearchActivity)) {
+                    if (!(activity instanceof SearchActivity)) {
                         ctx.startActivity(new Intent(ctx, SearchActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         activity.overridePendingTransition(0, 0);
@@ -52,7 +49,7 @@ public class BottomNavigationViewHelper {
                     break;
 
                 case R.id.item_moment:
-                    if(!(activity instanceof MomentActivity)) {
+                    if (!(activity instanceof MomentActivity)) {
                         ctx.startActivity(new Intent(ctx, MomentActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         activity.overridePendingTransition(0, 0);
@@ -62,7 +59,7 @@ public class BottomNavigationViewHelper {
                     break;
 
                 case R.id.item_notification:
-                    if(!(activity instanceof NotificationActivity)) {
+                    if (!(activity instanceof NotificationActivity)) {
                         ctx.startActivity(new Intent(ctx, NotificationActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         activity.overridePendingTransition(0, 0);
@@ -72,7 +69,7 @@ public class BottomNavigationViewHelper {
                     break;
 
                 case R.id.item_profile:
-                    if(!(activity instanceof ProfileActivity)) {
+                    if (!(activity instanceof ProfileActivity)) {
                         ctx.startActivity(new Intent(ctx, ProfileActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
                         activity.overridePendingTransition(0, 0);

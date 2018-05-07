@@ -1,15 +1,12 @@
 package com.hrrock.snapbook.services;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.content.LocalBroadcastManager;
-import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class SBFirebaseInstanceIDService extends FirebaseInstanceIdService {
-    private static final String USER_PREFERENCES="userinfo";
+    private static final String USER_PREFERENCES = "userinfo";
 
     @Override
     public void onTokenRefresh() {

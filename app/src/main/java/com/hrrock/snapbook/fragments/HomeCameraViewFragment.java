@@ -26,7 +26,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
 import android.util.Size;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
@@ -35,7 +34,6 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.hrrock.snapbook.R;
@@ -46,7 +44,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -61,8 +58,8 @@ public class HomeCameraViewFragment extends Fragment {
     private FloatingActionButton capture;
     private SharedPreferences preferences;
     private String destination;
-    private static final String USER_PREFERENCES="userinfo";
-    private static final String TAG="CAMERA";
+    private static final String USER_PREFERENCES = "userinfo";
+    private static final String TAG = "CAMERA";
 
     //Check state orientation of output image
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
@@ -118,9 +115,9 @@ public class HomeCameraViewFragment extends Fragment {
         //From Java 1.4 , you can use keyword 'assert' to check expression true or false
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
-        capture=v.findViewById(R.id.fabCapture);
+        capture = v.findViewById(R.id.fabCapture);
 
-        preferences=ctx.getSharedPreferences(USER_PREFERENCES,Context.MODE_PRIVATE);
+        preferences = ctx.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
 
         btnCapture = (Button) v.findViewById(R.id.btnCapture);
         capture.setOnClickListener(view -> takePicture());
@@ -128,9 +125,9 @@ public class HomeCameraViewFragment extends Fragment {
     }
 
     private void takePicture() {
-        final String timeStamp=String.valueOf(System.currentTimeMillis()/1000L);
-        final String photoName = preferences.getString("username", "") + "_"+timeStamp+".jpg";
-        destination="sdcard/Pictures/Snapbook/"+photoName;
+        final String timeStamp = String.valueOf(System.currentTimeMillis() / 1000L);
+        final String photoName = preferences.getString("username", "") + "_" + timeStamp + ".jpg";
+        destination = "sdcard/Pictures/Snapbook/" + photoName;
         if (cameraDevice == null)
             return;
         CameraManager manager = (CameraManager) ctx.getSystemService(Context.CAMERA_SERVICE);
@@ -162,7 +159,7 @@ public class HomeCameraViewFragment extends Fragment {
             int rotation = Objects.requireNonNull(getActivity()).getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
 
-            file = new File("sdcard/Pictures/Snapbook/", photoName+"");
+            file = new File("sdcard/Pictures/Snapbook/", photoName + "");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader imageReader) {
@@ -205,9 +202,9 @@ public class HomeCameraViewFragment extends Fragment {
                     Toast.makeText(getActivity(), "Saved " + file, Toast.LENGTH_SHORT).show();
                     createCameraPreview();
 
-                    Intent intent=new Intent(ctx, PostUploadingActivity.class);
-                    intent.putExtra("imgURL",destination);
-                    intent.putExtra("from",TAG);
+                    Intent intent = new Intent(ctx, PostUploadingActivity.class);
+                    intent.putExtra("imgURL", destination);
+                    intent.putExtra("from", TAG);
                     ctx.startActivity(intent);
                     Bungee.slideLeft(ctx);
                 }

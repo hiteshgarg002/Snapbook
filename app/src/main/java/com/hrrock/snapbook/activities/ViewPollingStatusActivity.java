@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.util.DisplayMetrics;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -173,11 +171,11 @@ public class ViewPollingStatusActivity extends AppCompatActivity {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
-       // int width = displayMetrics.widthPixels;
-        int marginTop=(height*30)/100;
+        // int width = displayMetrics.widthPixels;
+        int marginTop = (height * 30) / 100;
 
-        BottomSheetLayout.LayoutParams layoutParams=new BottomSheetLayout.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-        layoutParams.setMargins(0,marginTop,0,0);
+        BottomSheetLayout.LayoutParams layoutParams = new BottomSheetLayout.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+        layoutParams.setMargins(0, marginTop, 0, 0);
         bottomSheetLayout.setLayoutParams(layoutParams);
 
         viewComments.setOnClickListener(view -> bottomSheetLayout.toggle());

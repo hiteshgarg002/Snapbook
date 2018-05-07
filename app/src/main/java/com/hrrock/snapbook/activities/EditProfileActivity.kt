@@ -5,30 +5,26 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
-import android.os.PowerManager
 import android.provider.MediaStore
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.hrrock.snapbook.R
-import com.hrrock.snapbook.activities.dialogs.ChangePasswordDialogFragment
+import com.hrrock.snapbook.dialogs.ChangePasswordDialogFragment
 import com.hrrock.snapbook.networks.CallHttpRequest
 import com.hrrock.snapbook.networks.VolleyConnect
 import com.hrrock.snapbook.utils.GlideApp
@@ -36,8 +32,6 @@ import com.skydoves.powermenu.MenuAnimation
 import com.skydoves.powermenu.OnMenuItemClickListener
 import com.skydoves.powermenu.PowerMenu
 import com.skydoves.powermenu.PowerMenuItem
-import com.squareup.picasso.MemoryPolicy
-import com.squareup.picasso.Picasso
 import com.thekhaeng.pushdownanim.PushDownAnim
 import com.thekhaeng.pushdownanim.PushDownAnim.MODE_SCALE
 import kotlinx.android.synthetic.main.activity_edit_profile.*
@@ -47,15 +41,15 @@ import org.json.JSONArray
 import spencerstudios.com.bungeelib.Bungee
 import java.io.*
 
-class EditProfileActivity : AppCompatActivity(),OnMenuItemClickListener<PowerMenuItem> {
+class EditProfileActivity : AppCompatActivity(), OnMenuItemClickListener<PowerMenuItem> {
     private var ctx: Context? = null
     private var requestQueue: RequestQueue? = null
     private var jsonArrayRequest: JsonArrayRequest? = null
     private var stringRequest: StringRequest? = null
     private var preferences: SharedPreferences? = null
     private var gender: SwitchMultiButton? = null
-    private var powerMenu:PowerMenu?=null
-    private var myIntent:Intent?=null
+    private var powerMenu: PowerMenu? = null
+    private var myIntent: Intent? = null
     private var destination: File? = null
 
     private companion object {
@@ -64,7 +58,7 @@ class EditProfileActivity : AppCompatActivity(),OnMenuItemClickListener<PowerMen
         private const val GAL_REQ_CODE = 2
         private const val CAMERA = "camera"
         private const val GALLERY = "gallery"
-        private const val EDIT_PROFILE_ACTIVITY="EditProfileActivity"
+        private const val EDIT_PROFILE_ACTIVITY = "EditProfileActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -104,12 +98,12 @@ class EditProfileActivity : AppCompatActivity(),OnMenuItemClickListener<PowerMen
         window.navigationBarColor = resources.getColor(R.color.colorGray, null)
     }
 
-    private fun onSaveClick(){
+    private fun onSaveClick() {
         PushDownAnim.setPushDownAnimTo(saveOnEditProfile)
-                .setScale(MODE_SCALE, 0.89f )
+                .setScale(MODE_SCALE, 0.89f)
                 .setOnClickListener({
-                    saveOnEditProfile.visibility=View.INVISIBLE
-                    saveProgressOnEditProfile.visibility=View.VISIBLE
+                    saveOnEditProfile.visibility = View.INVISIBLE
+                    saveProgressOnEditProfile.visibility = View.VISIBLE
                     updateProfile()
                 })
     }
@@ -137,16 +131,16 @@ class EditProfileActivity : AppCompatActivity(),OnMenuItemClickListener<PowerMen
                         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                         .listener(object : RequestListener<Drawable> {
                             override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                                dpUpdateProgressEditProfile!!.visibility=View.GONE
-                                dpOnEditProfile!!.visibility=View.VISIBLE
-                                fab_editDPOnEditProfile!!.visibility=View.VISIBLE
+                                dpUpdateProgressEditProfile!!.visibility = View.GONE
+                                dpOnEditProfile!!.visibility = View.VISIBLE
+                                fab_editDPOnEditProfile!!.visibility = View.VISIBLE
                                 return false
                             }
 
                             override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                                dpUpdateProgressEditProfile!!.visibility=View.GONE
-                                dpOnEditProfile!!.visibility=View.VISIBLE
-                                fab_editDPOnEditProfile!!.visibility=View.VISIBLE
+                                dpUpdateProgressEditProfile!!.visibility = View.GONE
+                                dpOnEditProfile!!.visibility = View.VISIBLE
+                                fab_editDPOnEditProfile!!.visibility = View.VISIBLE
                                 return false
                             }
                         })
@@ -171,21 +165,21 @@ class EditProfileActivity : AppCompatActivity(),OnMenuItemClickListener<PowerMen
                 }}"
 
         stringRequest = StringRequest(url, Response.Listener<String> { response ->
-            if(response=="success"){
-                val intent=Intent(ctx,ProfileActivity::class.java)
-                intent.putExtra("from","EditProfile")
+            if (response == "success") {
+                val intent = Intent(ctx, ProfileActivity::class.java)
+                intent.putExtra("from", "EditProfile")
                 startActivity(intent)
 
                 Bungee.inAndOut(ctx)
                 ProfileActivity.destroyActivity()
                 finish()
-            }else{
-                saveProgressOnEditProfile.visibility=View.INVISIBLE
-                saveOnEditProfile.visibility=View.VISIBLE
+            } else {
+                saveProgressOnEditProfile.visibility = View.INVISIBLE
+                saveOnEditProfile.visibility = View.VISIBLE
             }
         }, Response.ErrorListener { error ->
-            saveProgressOnEditProfile.visibility=View.INVISIBLE
-            saveOnEditProfile.visibility=View.VISIBLE
+            saveProgressOnEditProfile.visibility = View.INVISIBLE
+            saveOnEditProfile.visibility = View.VISIBLE
         })
 
         requestQueue!!.add(stringRequest)
@@ -339,13 +333,13 @@ class EditProfileActivity : AppCompatActivity(),OnMenuItemClickListener<PowerMen
         }
     }
 
-    private fun onChangePasswordClick(){
+    private fun onChangePasswordClick() {
         PushDownAnim.setPushDownAnimTo(relChangePassword)
-                .setScale(MODE_SCALE, 0.89f )
+                .setScale(MODE_SCALE, 0.89f)
                 .setOnClickListener({
-                    val pwdDialog=ChangePasswordDialogFragment()
-                    pwdDialog.show(supportFragmentManager,"")
-                    pwdDialog.isCancelable=false
+                    val pwdDialog = ChangePasswordDialogFragment()
+                    pwdDialog.show(supportFragmentManager, "")
+                    pwdDialog.isCancelable = false
                 })
     }
 }

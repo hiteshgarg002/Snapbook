@@ -8,7 +8,6 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import com.hrrock.snapbook.R
-import com.hrrock.snapbook.activities.LoginActivity
 import kotlinx.android.synthetic.main.activity_signup.*
 import spencerstudios.com.bungeelib.Bungee
 

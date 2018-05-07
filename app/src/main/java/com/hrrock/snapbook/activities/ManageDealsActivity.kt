@@ -183,9 +183,9 @@ class ManageDealsActivity : AppCompatActivity(), View.OnClickListener {
         adapter!!.notifyDataSetChanged()
     }
 
-    private fun onDealsListItemClick(){
+    private fun onDealsListItemClick() {
         dealsList!!.setOnItemClickListener { adapterView, view, i, l ->
-            val deals=list!![i]
+            val deals = list!![i]
             val intent = Intent(ctx, ViewProductActivity::class.java)
             intent.putExtra("dealid", deals.dealId)
 

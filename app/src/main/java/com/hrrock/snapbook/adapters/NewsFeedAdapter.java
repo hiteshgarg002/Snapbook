@@ -248,9 +248,9 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 ((PhotoHolder) holder).captionLinear.setVisibility(View.GONE);
             }
 
-            if(Objects.equals(newsFeedModel.getUserName(), preferences.getString("username", ""))){
+            if (Objects.equals(newsFeedModel.getUserName(), preferences.getString("username", ""))) {
                 ((PhotoHolder) holder).options.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 ((PhotoHolder) holder).options.setVisibility(View.INVISIBLE);
             }
 

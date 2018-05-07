@@ -47,7 +47,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -61,8 +60,8 @@ public class MomentCameraViewFragment extends Fragment {
     private FloatingActionButton capture;
     private SharedPreferences preferences;
     private String destination;
-    private static final String USER_PREFERENCES="userinfo";
-    private static final String TAG="GALLERY";
+    private static final String USER_PREFERENCES = "userinfo";
+    private static final String TAG = "GALLERY";
     private RelativeLayout relativeLayout;
 
     //Check state orientation of output image
@@ -116,9 +115,9 @@ public class MomentCameraViewFragment extends Fragment {
         ctx = getActivity();
         textureView = (TextureView) v.findViewById(R.id.textureView);
         relativeLayout = v.findViewById(R.id.rel_textureView);
-        capture=v.findViewById(R.id.fabCapture);
+        capture = v.findViewById(R.id.fabCapture);
 
-        preferences=ctx.getSharedPreferences(USER_PREFERENCES,Context.MODE_PRIVATE);
+        preferences = ctx.getSharedPreferences(USER_PREFERENCES, Context.MODE_PRIVATE);
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -144,9 +143,9 @@ public class MomentCameraViewFragment extends Fragment {
     }
 
     private void takePicture() {
-        final String timeStamp=String.valueOf(System.currentTimeMillis()/1000L);
-        final String photoName = preferences.getString("username", "") + "_"+timeStamp+".jpg";
-        destination="sdcard/Pictures/Snapbook/"+photoName;
+        final String timeStamp = String.valueOf(System.currentTimeMillis() / 1000L);
+        final String photoName = preferences.getString("username", "") + "_" + timeStamp + ".jpg";
+        destination = "sdcard/Pictures/Snapbook/" + photoName;
         if (cameraDevice == null)
             return;
         CameraManager manager = (CameraManager) ctx.getSystemService(Context.CAMERA_SERVICE);
@@ -179,7 +178,7 @@ public class MomentCameraViewFragment extends Fragment {
             captureBuilder.set(CaptureRequest.JPEG_QUALITY, (byte) 100); // improving image quality
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
 
-            file = new File("sdcard/Pictures/Snapbook/", photoName+"");
+            file = new File("sdcard/Pictures/Snapbook/", photoName + "");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader imageReader) {
@@ -222,9 +221,9 @@ public class MomentCameraViewFragment extends Fragment {
                     Toast.makeText(getActivity(), "Saved " + file, Toast.LENGTH_SHORT).show();
                     createCameraPreview();
 
-                    Intent intent=new Intent(ctx, PostUploadingActivity.class);
-                    intent.putExtra("imgURL",destination);
-                    intent.putExtra("from",TAG);
+                    Intent intent = new Intent(ctx, PostUploadingActivity.class);
+                    intent.putExtra("imgURL", destination);
+                    intent.putExtra("from", TAG);
                     ctx.startActivity(intent);
                     Bungee.slideLeft(ctx);
                 }

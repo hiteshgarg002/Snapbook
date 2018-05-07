@@ -82,23 +82,23 @@ class PollingDealsActivity : AppCompatActivity() {
     }
 
     private fun getPollingDeals() {
-        val url = "http://${getString(R.string.ip)}/Snapbook/index.php/PollingController/getPollingDeals?username=${preferences!!.getString("username","")}"
+        val url = "http://${getString(R.string.ip)}/Snapbook/index.php/PollingController/getPollingDeals?username=${preferences!!.getString("username", "")}"
 
         jsonArrayRequest = JsonArrayRequest(url, Response.Listener<JSONArray> { response ->
-            if(response.length()>0){
+            if (response.length() > 0) {
                 (0 until response.length()).forEach { i ->
-                    val jsonObject=response.optJSONObject(i)
-                    val dealsModel=PollingDealsModel(jsonObject.optString("postid")
-                            ,jsonObject.optString("dealid"),
+                    val jsonObject = response.optJSONObject(i)
+                    val dealsModel = PollingDealsModel(jsonObject.optString("postid")
+                            , jsonObject.optString("dealid"),
                             jsonObject.optString("dealname"),
                             jsonObject.optString("date"))
 
                     list!!.add(dealsModel)
                 }
                 adapter!!.notifyDataSetChanged()
-                rel_pollingDeals_progress.visibility= View.GONE
-                rel_pollingDeals.visibility=View.VISIBLE
-            }else{
+                rel_pollingDeals_progress.visibility = View.GONE
+                rel_pollingDeals.visibility = View.VISIBLE
+            } else {
 
             }
         }, Response.ErrorListener { error -> })

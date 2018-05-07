@@ -1,7 +1,9 @@
 package com.hrrock.snapbook.activities
 
 import android.app.Activity
-import android.content.*
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
@@ -9,23 +11,16 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.content.ContextCompat
-import android.support.v4.content.LocalBroadcastManager
-import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import com.gigamole.navigationtabstrip.NavigationTabStrip
-import com.google.firebase.messaging.FirebaseMessaging
 import com.hrrock.snapbook.R
 import com.hrrock.snapbook.fragments.FollowingNotificationFragment
-import com.hrrock.snapbook.fragments.GalleryViewFragment
-import com.hrrock.snapbook.fragments.MomentCameraViewFragment
 import com.hrrock.snapbook.fragments.YouNotificationFragment
 import com.hrrock.snapbook.utils.BottomNavigationViewHelper
-import com.hrrock.snapbook.utils.NotificationUtils
 import com.hrrock.snapbook.utils.ScrollableViewPager
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import spencerstudios.com.bungeelib.Bungee
@@ -36,11 +31,11 @@ class NotificationActivity : AppCompatActivity() {
     private var bottomNavigationViewEx: BottomNavigationViewEx? = null
     private var menuItem: MenuItem? = null
     private var menu: Menu? = null
-    private var preferences:SharedPreferences?=null
+    private var preferences: SharedPreferences? = null
 
     private companion object {
         private const val ACTIVITY_NUM = 3
-        private const val USER_PREFERENCES="userinfo"
+        private const val USER_PREFERENCES = "userinfo"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

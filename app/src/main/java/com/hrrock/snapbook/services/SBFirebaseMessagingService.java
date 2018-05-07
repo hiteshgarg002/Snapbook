@@ -6,9 +6,7 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.hrrock.snapbook.activities.HomeActivity;
 import com.hrrock.snapbook.activities.NotificationActivity;
-import com.hrrock.snapbook.utils.Config;
 import com.hrrock.snapbook.utils.NotificationUtils;
 
 import org.json.JSONException;

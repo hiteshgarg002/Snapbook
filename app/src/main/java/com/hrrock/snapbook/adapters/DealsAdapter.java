@@ -3,7 +3,6 @@ package com.hrrock.snapbook.adapters;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -22,7 +21,6 @@ import com.bumptech.glide.request.target.Target;
 import com.hrrock.snapbook.R;
 import com.hrrock.snapbook.models.DealsModel;
 import com.hrrock.snapbook.utils.SquareImageView;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +45,7 @@ public class DealsAdapter extends ArrayAdapter<DealsModel> {
         private TextView productName, productCost, productCondition, productStatus;
         private ImageView productConditionStar, productShare;
         private SquareImageView productPhoto;
-        private RelativeLayout relProductPhoto,relProductPhotoProgress;
+        private RelativeLayout relProductPhoto, relProductPhotoProgress;
     }
 
     @NonNull
@@ -66,8 +64,8 @@ public class DealsAdapter extends ArrayAdapter<DealsModel> {
             holder.productShare = convertView.findViewById(R.id.productShareOnDeals);
             holder.productCost = convertView.findViewById(R.id.productCostOnDeals);
             holder.productShare = convertView.findViewById(R.id.productShareOnDeals);
-            holder.relProductPhoto=convertView.findViewById(R.id.relProductImageOnDeals);
-            holder.relProductPhotoProgress=convertView.findViewById(R.id.relProductImageLoadingOnDeals);
+            holder.relProductPhoto = convertView.findViewById(R.id.relProductImageOnDeals);
+            holder.relProductPhotoProgress = convertView.findViewById(R.id.relProductImageLoadingOnDeals);
 
             convertView.setTag(holder);
         } else {
@@ -91,7 +89,7 @@ public class DealsAdapter extends ArrayAdapter<DealsModel> {
         holder.productStatus.setText(dealsModel.getProductStatus());
         holder.productCost.setText(dealsModel.getProductCost());
 
-        if(!Objects.equals(dealsModel.getProductPhoto(), "")) {
+        if (!Objects.equals(dealsModel.getProductPhoto(), "")) {
             Glide.with(ctx.getApplicationContext())
                     .load(ctx.getString(R.string.BASE_URL_PHOTOS_PRODUCT) + dealsModel.getProductPhoto())
                     .listener(new RequestListener<Drawable>() {
