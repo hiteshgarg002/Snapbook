@@ -79,14 +79,14 @@ class NotificationActivity : AppCompatActivity() {
         val viewPager = findViewById<View>(R.id.notificationVP) as ScrollableViewPager
         viewPager.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int): Fragment? {
-                var F: Fragment? = null
+                var f: Fragment? = null
                 if (position == 0) {
-                    F = FollowingNotificationFragment()
+                    f = FollowingNotificationFragment()
                 }
                 if (position == 1) {
-                    F = YouNotificationFragment()
+                    f = YouNotificationFragment()
                 }
-                return F
+                return f
             }
 
             override fun getCount(): Int {
